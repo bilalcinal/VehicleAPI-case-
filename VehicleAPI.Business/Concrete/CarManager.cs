@@ -18,13 +18,13 @@ public class CarManager : ICarService
         return await _carDal.GetListAsync(x => x.Color == Color);
     }
 
-    public async Task TurnOnOffHeadlights(Guid carId, bool status)
+    public async Task TurnOnOffHeadlights(int carId, bool status)
     {
         var car = await _carDal.GetAsync(x => x.Id == carId);
             car.Headlights = status;
             await _carDal.UpdateAsync(car);
     }
-     public async Task DeleteCar(Guid carId)
+     public async Task DeleteCar(int carId)
     {
         var car = await _carDal.GetAsync(x => x.Id == carId);
         await _carDal.DeleteAsync(car);

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using VehicleAPI.API.Models;
 using VehicleAPI.Business.Abstract;
 using VehicleAPI.DataAccess.Abstract;
+using VehicleAPI.Entities.Concrete;
 
 namespace VehicleAPI.API.Controllers
 {
@@ -16,8 +17,8 @@ namespace VehicleAPI.API.Controllers
             _carService = carService;
         }
 
-        [HttpGet("GetCarsByColor/{color}")]
-        public async Task<ActionResult<List<CarVM>>> GetCarsByColor(string Color)
+        [HttpGet("GetCarsByColor")]
+        public async Task<ActionResult<List<CarModel>>> GetCarsByColor(string Color)
         {
             var result = await _carService.GetCarsByColor(Color);
             if (result == null)
@@ -27,18 +28,18 @@ namespace VehicleAPI.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut("TurnOnOffHeadlights/{carId}/{status}")]
-        public async Task<IActionResult> TurnOnOffHeadlights(Guid carId, bool status)
+        [HttpPut("TurnOnOffHeadlights")]
+        public async Task<IActionResult> TurnOnOffHeadlights(int carId, bool status)
         {
             await _carService.TurnOnOffHeadlights(carId, status);
-            return NoContent();
+            return Ok();
         }
 
-        [HttpDelete("DeleteCar/{id}")]
-        public async Task<IActionResult> DeleteCar(Guid Id)
+        [HttpDelete("DeleteCar")]
+        public async Task<IActionResult> DeleteCar(int Id)
         {
             await _carService.DeleteCar(Id);
-            return NoContent();
+            return Ok();
         }
     }
 

@@ -5,5 +5,6 @@ namespace VehicleAPI.Entities.Concrete;
 public class CarModel : Vehicle{
     
     public bool Headlights { get; set; }
+    public int Wheels { get; set; }
     
 }

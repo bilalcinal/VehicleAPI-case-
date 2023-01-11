@@ -7,25 +7,23 @@ using VehicleAPI.DataAccess.Concrete.EntityFramework;
 
 namespace VehicleAPI.Business.Autofac;
 
-   public class AutofacBusinessModule : Module
+public class AutofacBusinessModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
         #region Car
         builder.RegisterType<CarManager>().As<ICarService>();
         builder.RegisterType<EfCarDal>().As<ICarDal>();
-        #endregion 
-
-        #region Boat
-        builder.RegisterType<BoatManager>().As<IBoatService>();
-        builder.RegisterType<EfBoatDal>().As<IBoatDal>();
         #endregion
 
-       #region Bus
+        #region Bus
         builder.RegisterType<BusManager>().As<IBusService>();
         builder.RegisterType<EfBusDal>().As<IBusDal>();
         #endregion
 
-        
-    }   
+       #region Boat
+        builder.RegisterType<BoatManager>().As<IBoatService>();
+        builder.RegisterType<EfBoatDal>().As<IBoatDal>();
+        #endregion
+    }
 }
