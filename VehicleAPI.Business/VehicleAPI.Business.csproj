@@ -3,7 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VehicleAPI.Core\VehicleAPI.Core.csproj" />
+    <ProjectReference Include="..\VehicleAPI.DataAccess\VehicleAPI.DataAccess.csproj" />
+    <ProjectReference Include="..\VehicleAPI.Entities\VehicleAPI.Entities.csproj" />
+  </ItemGroup>
+
 
 </Project>
