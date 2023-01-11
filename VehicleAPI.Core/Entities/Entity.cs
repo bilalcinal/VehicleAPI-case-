@@ -1,6 +1,6 @@
 namespace VehicleAPI.Core.Entities;
 
-public class Entity : IEntity
+public abstract class Entity : IEntity
 {
    public Guid Id { get; set; }
 }

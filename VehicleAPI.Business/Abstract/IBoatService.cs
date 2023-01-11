@@ -1,6 +1,8 @@
+using VehicleAPI.Entities.Concrete;
+
 namespace VehicleAPI.Business.Abstract;
 
-public class IBoatService
+public interface IBoatService
 {
-
+   Task<IList<BoatModel>> GetBoatByColor(string Color);
 }
